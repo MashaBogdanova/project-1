@@ -1,0 +1,71 @@
+@import "../abstracts/constants";
+@import "../abstracts/mixins";
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: $content-width-desktop;
+  min-width: 400px;
+  margin: auto;
+  padding: 1em;
+
+  &__title {
+    flex-basis: 100%;
+    margin: 3rem auto 1rem;
+
+    font-size: 3.6em;
+    color: $color-primary;
+    text-align: center;
+    @include media-tablet {
+      font-size: 5.5em;
+    }
+    @include media-mobile {
+      font-size: 4em;
+    }
+  }
+
+  &__sound {
+    width: 2em;
+    height: 2em;
+
+    background-repeat: no-repeat;
+    background-position: center 1px;
+    background-size: 80% 80%;
+    background-image: url("../assets/images/sound-on.png");
+    border: 2px dashed $color-tertiary;
+    border-radius: 50%;
+    transition: background-color 300ms;
+    &_off {
+      background-image: url("../assets/images/sound-off.png");
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $color-secondary-dark;
+    }
+  }
+
+  &__steps, &__stopwatch, &__flags-counter {
+    font-size: 2.5em;
+    color: $color-tertiary;
+    border-radius: .5em;
+    @include media-tablet {
+      font-size: 4em;
+    }
+    @include media-mobile {
+      font-size: 2em;
+    }
+  }
+
+  @include media-tablet {
+    width: calc($content-width-tablet - 1em);
+    padding: 2.5em;
+  }
+
+  @include media-mobile {
+    gap: .3em;
+    width: $content-width-mobile;
+    padding: 1.5em;
+  }
+}

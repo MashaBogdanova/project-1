@@ -1,0 +1,123 @@
+@import "../abstracts/constants";
+@import "../abstracts/mixins";
+@import "../base/fonts";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $color-background;
+  font-family: Neon, sans-serif;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  user-select: none;
+
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  &_hidden {
+    display: none;
+  }
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Neon, sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+
+  background-color: $color-secondary;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  transform: scale(0.96);
+  transition: all 100ms;
+
+  &:hover:not(&_opened, &_mined) {
+    background-color: $color-cell-hovered;
+  }
+
+  &_opened {
+    background-color: $color-secondary-light;
+    animation-name: scaleCell;
+    animation-duration: 190ms;
+  }
+
+  &_mined {
+    background-color: transparent;
+    background-image: url("../assets/images/explosion.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70% 70%;
+  }
+
+  &_flagged {
+    background-image: url("../assets/images/flag.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60% 60%;
+
+    animation-name: scaleCell;
+    animation-duration: 190ms;
+  }
+
+  &_1mine {
+    color: $color-1mine;
+  }
+
+  &_2mines {
+    color: $color-2mines;
+  }
+
+  &_3mines {
+    color: $color-tertiary;
+  }
+
+  &_4mines {
+    color: $color-background;
+  }
+
+  &_5mines {
+    color: $color-5mines;
+  }
+
+  &_6mines {
+    color: $color-6mines;
+  }
+
+  &_7mines {
+    color: $color-7mines;
+  }
+
+  &_8mines {
+    color: $color-8mines;
+  }
+
+  @include media-desktop {
+    &:hover:not(&_opened, &_mined) {
+      background-color: $color-cell-hovered;
+    }
+  }
+}
+
+@include animation-scale;

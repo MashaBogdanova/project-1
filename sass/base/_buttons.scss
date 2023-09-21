@@ -1,0 +1,28 @@
+@import "../abstracts/constants";
+@import "../abstracts/mixins";
+
+.button {
+  padding: .7rem .9em;
+
+  font-family: Neon, sans-serif;
+  font-size: 1.4em;
+  color: $color-secondary;
+
+  background-color: transparent;
+  border: 2px dashed $color-primary;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: background-color 300ms;
+
+  @include media-tablet {
+    font-size: 2.5em;
+  }
+  @include media-tablet {
+    font-size: 1.8em;
+  }
+  @include media-desktop {
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+}

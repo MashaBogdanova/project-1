@@ -1,0 +1,69 @@
+@import "../abstracts/constants";
+@import "../abstracts/mixins";
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  justify-content: center;
+  align-items: center;
+  width: $content-width-desktop;
+  min-width: 400px;
+  height: 560px;
+  margin: auto;
+  padding: 2em;
+
+  background-color: rgba(49, 1, 49, 0.15);
+  border: 0.2em dashed $color-secondary-dark;
+  border-radius: 2em;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 3.5em;
+    color: $color-secondary;
+    text-align: center;
+    @include media-tablet {
+      font-size: 5em;
+    }
+    @include media-mobile {
+      font-size: 3.5em;
+    }
+  }
+
+  &__paragraph {
+    font-size: 1.2em;
+    color: $color-secondary-light;
+    @include media-tablet {
+      font-size: 1.8em;
+    }
+  }
+
+  &__fieldset {
+    display: flex;
+    gap: 1.5em;
+    border: none;
+  }
+
+  @include media-tablet {
+    width: $content-width-tablet;
+    height: $content-height-tablet;
+    gap: 2.5em;
+  }
+
+  @include media-mobile {
+    width: $content-width-mobile;
+    height: $content-height-mobile;
+    min-width: unset;
+  }
+}
